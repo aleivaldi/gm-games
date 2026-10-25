@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="it" data-ads="0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>G&amp;M Games</title>
+<meta name="description" content="G&amp;M Games: i giochi di Gabri e Maya. Giochi gratuiti per bambini, in 5 lingue, da giocare nel browser su tablet e computer.">
+<meta name="theme-color" content="#DFF3FF">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="gm-favicon-32.png">
+<link rel="icon" type="image/svg+xml" href="gm-icon.svg">
+<link rel="apple-touch-icon" href="gm-apple-touch-icon.png">
+<meta property="og:title" content="G&amp;M Games">
+<meta property="og:description" content="I giochi di Gabri e Maya">
+<meta property="og:image" content="gm-icon-512.png">
+<style>
+/* Layout: a swimming-pool wall of big toy-box cards; brand mark at top, one card per game, a short note for parents at the bottom. */
+:root{
+  --pool:#DFF3FF; --tile:#C3E6F8; --ink:#2B2340; --ink-soft:#655A7C;
+  --water:#1F8ACB; --water-dark:#16679A; --sun:#FFC93C; --coral:#FF5C6C;
+  --paper:#FFFFFF; --cream:#FFF6E6; --shade:rgba(43,35,64,.16);
+  --f-display:"Arial Rounded MT Bold","Trebuchet MS",ui-rounded,system-ui,sans-serif;
+  --f-body:"Avenir Next","Segoe UI",ui-rounded,system-ui,sans-serif;
+  --emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:var(--f-body);background:var(--pool);
+  background-image:linear-gradient(var(--tile) 2px,transparent 2px),linear-gradient(90deg,var(--tile) 2px,transparent 2px);background-size:56px 56px}
+.wrap{max-width:1100px;margin:0 auto;padding-block:18px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top{display:flex;justify-content:flex-end}
+.lang{display:flex;gap:6px;flex-wrap:wrap}
+.lang button{font:800 14px/1 var(--f-body);letter-spacing:.06em;min-width:44px;min-height:40px;border-radius:12px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.lang button:focus-visible,.game:focus-visible,footer a:focus-visible{outline:4px solid var(--water);outline-offset:3px}
+header{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding-block:10px 30px}
+.mark{width:clamp(110px,22vw,160px);height:auto;border-radius:24%;box-shadow:0 8px 0 var(--shade)}
+h1{margin:6px 0 0;font-family:var(--f-display);font-size:clamp(44px,10vw,84px);line-height:1;color:var(--water-dark);text-shadow:0 4px 0 var(--paper),0 8px 0 var(--shade)}
+h1 .amp{color:var(--coral)}
+.tagline{margin:0;font-family:var(--f-display);font-size:clamp(20px,4vw,28px);color:var(--ink)}
+.intro{margin:4px auto 0;max-width:46ch;font-size:19px;line-height:1.45;color:var(--ink-soft);text-wrap:balance}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.game{display:flex;flex-direction:column;background:var(--paper);border-radius:32px;overflow:hidden;box-shadow:0 8px 0 var(--shade);color:inherit;text-decoration:none;transition:transform .15s}
+.game:hover{transform:translateY(-4px)}
+.game:active{transform:translateY(4px);box-shadow:0 2px 0 var(--shade)}
+.thumb{aspect-ratio:16/10;display:grid;place-items:center;position:relative}
+.thumb.chef{background:radial-gradient(circle at 50% 60%,var(--paper) 0 22%,#FFC93C 70%)}
+.thumb.runway{background:radial-gradient(circle at 50% 60%,#FFFFFF 0 22%,#B388FF 70%)}
+.thumb .big{font-family:var(--emoji);font-size:clamp(80px,12vw,120px);line-height:1}
+.thumb .orbit{position:absolute;font-family:var(--emoji);font-size:44px}
+.game-body{padding:18px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.game h2{margin:0;font-family:var(--f-display);font-size:28px;line-height:1.1;text-wrap:balance}
+.game p{margin:0;font-size:17px;line-height:1.4;color:var(--ink-soft)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.tags span{font-size:14px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--cream)}
+.play{align-self:flex-start;margin-top:auto;padding:10px 26px;border-radius:999px;background:var(--coral);color:var(--paper);font-family:var(--f-display);font-size:22px;box-shadow:0 5px 0 #C9404E}
+.soon{display:grid;place-items:center;text-align:center;min-height:240px;border:4px dashed var(--tile);border-radius:32px;color:var(--ink-soft);font-size:20px;padding:20px}
+.soon .emo{font-family:var(--emoji);font-size:52px;display:block;margin-bottom:8px}
+.parents{margin-top:40px;background:var(--cream);border-radius:28px;padding:22px 26px}
+.parents h3{margin:0 0 8px;font-family:var(--f-display);font-size:24px}
+.parents ul{margin:0;padding-left:20px;line-height:1.6;font-size:17px;max-width:70ch}
+html[data-ads="0"] .ads-only{display:none}
+footer{margin-top:26px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-size:15px;color:var(--ink-soft)}
+footer a{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.game{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="lang" id="lang" role="group" aria-label="Lingua / Language"></div></div>
+
+  <header>
+    <img class="mark" src="gm-icon-512.png" width="160" height="160" alt="">
+    <h1>G<span class="amp">&amp;</span>M Games</h1>
+    <p class="tagline" data-i="tagline"></p>
+    <p class="intro" data-i="intro"></p>
+  </header>
+
+  <main class="grid">
+    <a class="game" href="giochi/chef-a-casa/">
+      <div class="thumb chef" aria-hidden="true">
+        <span class="big">🧑‍🍳</span>
+        <span class="orbit" style="left:10%;top:14%">🍕</span>
+        <span class="orbit" style="right:10%;top:12%">🥞</span>
+        <span class="orbit" style="left:14%;bottom:10%">🍪</span>
+        <span class="orbit" style="right:12%;bottom:12%">🥗</span>
+      </div>
+      <div class="game-body">
+        <h2 data-i="chefName"></h2>
+        <p data-i="chefDesc"></p>
+        <div class="tags"><span data-i="tagLangs"></span><span data-i="tagAge"></span></div>
+        <span class="play" data-i="play"></span>
+      </div>
+    </a>
+    <a class="game" href="giochi/passerella/">
+      <div class="thumb runway" aria-hidden="true">
+        <span class="big">👗</span>
+        <span class="orbit" style="left:10%;top:14%">👑</span>
+        <span class="orbit" style="right:10%;top:12%">🎀</span>
+        <span class="orbit" style="left:14%;bottom:10%">👠</span>
+        <span class="orbit" style="right:12%;bottom:12%">✨</span>
+      </div>
+      <div class="game-body">
+        <h2 data-i="runwayName"></h2>
+        <p data-i="runwayDesc"></p>
+        <div class="tags"><span data-i="tagLangs"></span><span data-i="tagAge"></span></div>
+        <span class="play" data-i="play"></span>
+      </div>
+    </a>
+    <div class="soon"><div><span class="emo">🎁</span><span data-i="soon"></span></div></div>
+  </main>
+
+  <section class="parents">
+    <h3 data-i="parentsTitle"></h3>
+    <ul>
+      <li data-i="p1"></li>
+      <li data-i="p2"></li>
+      <li class="ads-only" data-i="p3"></li>
+    </ul>
+  </section>
+
+  <footer>
+    <a class="ads-only" href="privacy.html" data-i="privacy"></a>
+    <span>© 2026 G&amp;M Games</span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  'use strict';
+  const LANGS = ['it', 'en', 'fr', 'de', 'es'];
+  const STR = {
+    it: {
+      tagline: 'I giochi di Gabri e Maya',
+      intro: 'Giochi semplici e allegri, inventati da Gabri e Maya, da fare con calma su tablet e computer.',
+      chefName: 'Chef a casa', chefDesc: 'Cucina per la tua famiglia, guadagna stelline e scopri 14 ricette.',
+      runwayName: 'La Passerella di Maya', runwayDesc: 'Corri sulla passerella, scegli le porte e crea la tua bambola.',
+      tagLangs: '5 lingue', tagAge: 'Dai 5 anni', play: 'Gioca ▶', soon: 'Presto un nuovo gioco!',
+      parentsTitle: 'Per i genitori', p1: 'Nessuna registrazione, nessuna chat, nessun acquisto.',
+      p2: 'I progressi restano solo sul vostro dispositivo.',
+      p3: 'Tra una partita e l\'altra può comparire una breve pubblicità, mai durante il gioco. Gli annunci non sono personalizzati e non usano profilazione.',
+      privacy: 'Privacy e cookie',
+    },
+    en: {
+      tagline: 'Games by Gabri and Maya',
+      intro: 'Simple, cheerful games invented by Gabri and Maya, to play at your own pace on tablets and computers.',
+      chefName: 'Little Chef at Home', chefDesc: 'Cook for your family, earn stars and discover 14 recipes.',
+      runwayName: 'Maya\'s Runway', runwayDesc: 'Run down the runway, pick the doors and create your own doll.',
+      tagLangs: '5 languages', tagAge: 'Ages 5+', play: 'Play ▶', soon: 'A new game is coming soon!',
+      parentsTitle: 'For parents', p1: 'No sign-up, no chat, no purchases.',
+      p2: 'Progress stays on your device only.',
+      p3: 'A short ad may appear between games, never during play. Ads are not personalised and use no profiling.',
+      privacy: 'Privacy and cookies',
+    },
+    fr: {
+      tagline: 'Les jeux de Gabri et Maya',
+      intro: 'Des jeux simples et joyeux, inventés par Gabri et Maya, à jouer tranquillement sur tablette et ordinateur.',
+      chefName: 'Petit chef à la maison', chefDesc: 'Cuisine pour ta famille, gagne des étoiles et découvre 14 recettes.',
+      runwayName: 'Le Défilé de Maya', runwayDesc: 'Cours sur le podium, choisis les portes et crée ta poupée.',
+      tagLangs: '5 langues', tagAge: 'Dès 5 ans', play: 'Jouer ▶', soon: 'Un nouveau jeu arrive bientôt !',
+      parentsTitle: 'Pour les parents', p1: 'Pas d\'inscription, pas de chat, pas d\'achats.',
+      p2: 'La progression reste uniquement sur votre appareil.',
+      p3: 'Une courte publicité peut apparaître entre deux parties, jamais pendant le jeu. Les annonces ne sont pas personnalisées et n\'utilisent aucun profilage.',
+      privacy: 'Confidentialité et cookies',
+    },
+    de: {
+      tagline: 'Die Spiele von Gabri und Maya',
+      intro: 'Einfache, fröhliche Spiele, erfunden von Gabri und Maya, zum gemütlichen Spielen auf Tablet und Computer.',
+      chefName: 'Kleiner Koch zu Hause', chefDesc: 'Koche für deine Familie, sammle Sterne und entdecke 14 Rezepte.',
+      runwayName: 'Mayas Laufsteg', runwayDesc: 'Lauf über den Laufsteg, wähle die Tore und gestalte deine Puppe.',
+      tagLangs: '5 Sprachen', tagAge: 'Ab 5 Jahren', play: 'Spielen ▶', soon: 'Bald kommt ein neues Spiel!',
+      parentsTitle: 'Für Eltern', p1: 'Keine Anmeldung, kein Chat, keine Käufe.',
+      p2: 'Der Spielstand bleibt nur auf eurem Gerät.',
+      p3: 'Zwischen zwei Runden kann kurz Werbung erscheinen, nie während des Spiels. Die Anzeigen sind nicht personalisiert und nutzen kein Profiling.',
+      privacy: 'Datenschutz und Cookies',
+    },
+    es: {
+      tagline: 'Los juegos de Gabri y Maya',
+      intro: 'Juegos sencillos y alegres, inventados por Gabri y Maya, para jugar con calma en tablet y ordenador.',
+      chefName: 'Pequeño chef en casa', chefDesc: 'Cocina para tu familia, gana estrellas y descubre 14 recetas.',
+      runwayName: 'La Pasarela de Maya', runwayDesc: 'Corre por la pasarela, elige las puertas y crea tu muñeca.',
+      tagLangs: '5 idiomas', tagAge: 'Desde 5 años', play: 'Jugar ▶', soon: '¡Pronto llega un juego nuevo!',
+      parentsTitle: 'Para las familias', p1: 'Sin registro, sin chat, sin compras.',
+      p2: 'El progreso se queda solo en vuestro dispositivo.',
+      p3: 'Entre partida y partida puede aparecer un anuncio breve, nunca durante el juego. Los anuncios no están personalizados ni usan perfiles.',
+      privacy: 'Privacidad y cookies',
+    },
+  };
+  const KEY = 'gm-lang';
+  function saved() { try { return localStorage.getItem(KEY); } catch (e) { console.warn('Language not readable', e); return null; } }
+  function remember(l) { try { localStorage.setItem(KEY, l); } catch (e) { console.warn('Language not saved', e); } }
+  function detect() { const n = String(navigator.language || 'en').slice(0, 2).toLowerCase(); return LANGS.includes(n) ? n : 'en'; }
+
+  function apply(l) {
+    const T = STR[l];
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i]').forEach(el => { el.textContent = T[el.dataset.i]; });
+    document.querySelector('meta[name="description"]').content = `G&M Games: ${T.tagline}. ${T.intro}`;
+    document.querySelectorAll('#lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.l === l)));
+  }
+
+  const box = document.getElementById('lang');
+  LANGS.forEach(l => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.dataset.l = l; b.textContent = l.toUpperCase();
+    b.addEventListener('click', () => { remember(l); apply(l); });
+    box.appendChild(b);
+  });
+  const start = saved();
+  apply(LANGS.includes(start) ? start : detect());
+})();
+</script>
+</body>
+</html>
