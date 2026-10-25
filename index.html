@@ -45,6 +45,7 @@ h1 .amp{color:var(--coral)}
 .thumb{aspect-ratio:16/10;display:grid;place-items:center;position:relative}
 .thumb.chef{background:radial-gradient(circle at 50% 60%,var(--paper) 0 22%,#FFC93C 70%)}
 .thumb.runway{background:radial-gradient(circle at 50% 60%,#FFFFFF 0 22%,#B388FF 70%)}
+.thumb.resto{background:radial-gradient(circle at 50% 60%,#F6EBD0 0 22%,#1F4D3A 72%)}
 .thumb .big{font-family:var(--emoji);font-size:clamp(80px,12vw,120px);line-height:1}
 .thumb .orbit{position:absolute;font-family:var(--emoji);font-size:44px}
 .game-body{padding:18px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
@@ -106,6 +107,21 @@ footer a{color:var(--ink)}
         <span class="play" data-i="play"></span>
       </div>
     </a>
+    <a class="game" href="giochi/ristorante/">
+      <div class="thumb resto" aria-hidden="true">
+        <span class="big">🍽️</span>
+        <span class="orbit" style="left:10%;top:14%">⭐</span>
+        <span class="orbit" style="right:10%;top:12%">🕵️</span>
+        <span class="orbit" style="left:14%;bottom:10%">🦞</span>
+        <span class="orbit" style="right:12%;bottom:12%">🪙</span>
+      </div>
+      <div class="game-body">
+        <h2 data-i="restoName"></h2>
+        <p data-i="restoDesc"></p>
+        <div class="tags"><span data-i="tagLangs"></span><span data-i="tagAge8"></span></div>
+        <span class="play" data-i="play"></span>
+      </div>
+    </a>
     <div class="soon"><div><span class="emo">🎁</span><span data-i="soon"></span></div></div>
   </main>
 
@@ -130,6 +146,7 @@ footer a{color:var(--ink)}
   const LANGS = ['it', 'en', 'fr', 'de', 'es'];
   const STR = {
     it: {
+      restoName: 'Ristorante 5 Stelle', restoDesc: 'Gestisci un ristorante elegante, assumi lo staff e scopri il critico in incognito.', tagAge8: 'Dagli 8 anni',
       tagline: 'I giochi di Gabri e Maya',
       intro: 'Giochi semplici e allegri, inventati da Gabri e Maya, da fare con calma su tablet e computer.',
       chefName: 'Chef a casa', chefDesc: 'Cucina per la tua famiglia, guadagna stelline e scopri 14 ricette.',
@@ -141,6 +158,7 @@ footer a{color:var(--ink)}
       privacy: 'Privacy e cookie',
     },
     en: {
+      restoName: '5-Star Restaurant', restoDesc: 'Run an elegant restaurant, hire your staff and unmask the secret food critic.', tagAge8: 'Ages 8+',
       tagline: 'Games by Gabri and Maya',
       intro: 'Simple, cheerful games invented by Gabri and Maya, to play at your own pace on tablets and computers.',
       chefName: 'Little Chef at Home', chefDesc: 'Cook for your family, earn stars and discover 14 recipes.',
@@ -152,6 +170,7 @@ footer a{color:var(--ink)}
       privacy: 'Privacy and cookies',
     },
     fr: {
+      restoName: 'Restaurant 5 étoiles', restoDesc: 'Dirige un restaurant chic, embauche ton équipe et démasque le critique incognito.', tagAge8: 'Dès 8 ans',
       tagline: 'Les jeux de Gabri et Maya',
       intro: 'Des jeux simples et joyeux, inventés par Gabri et Maya, à jouer tranquillement sur tablette et ordinateur.',
       chefName: 'Petit chef à la maison', chefDesc: 'Cuisine pour ta famille, gagne des étoiles et découvre 14 recettes.',
@@ -163,6 +182,7 @@ footer a{color:var(--ink)}
       privacy: 'Confidentialité et cookies',
     },
     de: {
+      restoName: '5-Sterne-Restaurant', restoDesc: 'Führe ein elegantes Restaurant, stelle Personal ein und entlarve den geheimen Restaurantkritiker.', tagAge8: 'Ab 8 Jahren',
       tagline: 'Die Spiele von Gabri und Maya',
       intro: 'Einfache, fröhliche Spiele, erfunden von Gabri und Maya, zum gemütlichen Spielen auf Tablet und Computer.',
       chefName: 'Kleiner Koch zu Hause', chefDesc: 'Koche für deine Familie, sammle Sterne und entdecke 14 Rezepte.',
@@ -174,6 +194,7 @@ footer a{color:var(--ink)}
       privacy: 'Datenschutz und Cookies',
     },
     es: {
+      restoName: 'Restaurante 5 estrellas', restoDesc: 'Dirige un restaurante elegante, contrata a tu equipo y descubre al crítico de incógnito.', tagAge8: 'Desde 8 años',
       tagline: 'Los juegos de Gabri y Maya',
       intro: 'Juegos sencillos y alegres, inventados por Gabri y Maya, para jugar con calma en tablet y ordenador.',
       chefName: 'Pequeño chef en casa', chefDesc: 'Cocina para tu familia, gana estrellas y descubre 14 recetas.',
