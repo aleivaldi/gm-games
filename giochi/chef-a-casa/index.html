@@ -294,7 +294,7 @@ main{flex:1;min-height:0;position:relative}
 }
 @media (max-width:640px){
   #scr-kitchen{display:flex;flex-direction:column;overflow-y:auto;padding-bottom:20px}
-  .guest{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;padding:0}
+  .guest{flex:none;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;padding:0}
   .bubble{max-width:200px}
   .bubble::after{display:none}
   .char{width:110px;margin-top:0}
@@ -816,12 +816,14 @@ function say(text, pitch = 1.1) {
 }
 
 async function adBreak() {
+  if (!P.breakAd) return;
   platform.gameplayStop();
   adPlaying = true; hush();
-  try { if (ac) await ac.suspend(); } catch (e) { console.warn('Audio suspend failed', e); }
+  // WHY: on iOS suspend()/resume() outside a tap never settle, so awaiting them would freeze the game.
+  if (ac) ac.suspend().catch(e => console.warn('Audio suspend failed', e));
   try { await platform.breakAd(); } catch (e) { console.warn('Ad break failed', e); }
   adPlaying = false;
-  try { if (ac && state.sound) await ac.resume(); } catch (e) { console.warn('Audio resume failed', e); }
+  if (ac && state.sound) ac.resume().catch(e => console.warn('Audio resume failed', e));
 }
 
 /* ---------- fx ---------- */

@@ -617,9 +617,10 @@ function startRun(){
   G.run={s:0,v,gates,buttons:makeButtons(gates,v),x:trackX+halfW,tx:trackX+halfW,countT:3.6,lastN:4,passed:0,btn:0,flash:-9,hint:4};
   G.parts=[];G.texts=[];G.mode='count';updateHud();keepAwake(true);if(GP.gameplayStart)GP.gameplayStart();
 }
-/* WHY: ads only before a run starts, never during it; each platform decides whether one actually plays. */
+/* WHY: ads only before a run starts, never during it; each platform decides whether one actually plays.
+   Audio promises are never awaited: on iOS suspend()/resume() outside a tap never settle and the run would never start. */
 let playBusy=false;
-async function adBreak(){if(GP.gameplayStop)GP.gameplayStop();adPlaying=true;try{if(actx)await actx.suspend()}catch(e){}try{if(GP.breakAd)await GP.breakAd()}catch(e){console.warn('Ad break failed',e)}adPlaying=false;try{if(actx&&soundOn)await actx.resume()}catch(e){}}
+async function adBreak(){if(!GP.breakAd)return;if(GP.gameplayStop)GP.gameplayStop();adPlaying=true;if(actx)actx.suspend().catch(()=>{});try{await GP.breakAd()}catch(e){console.warn('Ad break failed',e)}adPlaying=false;if(actx&&soundOn)actx.resume().catch(()=>{})}
 async function play(){if(playBusy)return;playBusy=true;await adBreak();playBusy=false;startRun()}
 function updateHud(){const r=G.run;if(!r)return;const last=r.gates[r.gates.length-1].s;$('#tapeFill').style.width=(clamp(r.s/last,0,1)*100)+'%';$('#tapeLabel').textContent=r.passed+'/'+r.gates.length;$('#btnCount').textContent=r.btn}
 function goHome(){closeModal();if(GP.gameplayStop)GP.gameplayStop();keepAwake(false);G.mode='home';G.run=null;show('#hud',false);show('#result',false);show('#closet',false);show('#home',true);G.home.doll=randomDoll();layout();updateCount()}
