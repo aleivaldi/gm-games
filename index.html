@@ -8,11 +8,10 @@
 <meta name="theme-color" content="#DFF3FF">
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" type="image/png" sizes="32x32" href="gm-favicon-32.png">
-<link rel="icon" type="image/svg+xml" href="gm-icon.svg">
 <link rel="apple-touch-icon" href="gm-apple-touch-icon.png">
 <meta property="og:title" content="G&amp;M Games">
 <meta property="og:description" content="I giochi di Gabri e Maya">
-<meta property="og:image" content="gm-icon-512.png">
+<meta property="og:image" content="gm-photo.jpg">
 <style>
 /* Layout: a swimming-pool wall of big toy-box cards; brand mark at top, one card per game, a short note for parents at the bottom. */
 :root{
@@ -34,7 +33,7 @@ body{margin:0;min-height:100vh;color:var(--ink);font-family:var(--f-body);backgr
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .lang button:focus-visible,.game:focus-visible,footer a:focus-visible{outline:4px solid var(--water);outline-offset:3px}
 header{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding-block:10px 30px}
-.mark{width:clamp(110px,22vw,160px);height:auto;border-radius:24%;box-shadow:0 8px 0 var(--shade)}
+.mark{width:clamp(150px,30vw,220px);height:auto;aspect-ratio:1;border-radius:28px;border:5px solid var(--paper);box-shadow:0 8px 0 var(--shade);transform:rotate(-2deg)}
 h1{margin:6px 0 0;font-family:var(--f-display);font-size:clamp(44px,10vw,84px);line-height:1;color:var(--water-dark);text-shadow:0 4px 0 var(--paper),0 8px 0 var(--shade)}
 h1 .amp{color:var(--coral)}
 .tagline{margin:0;font-family:var(--f-display);font-size:clamp(20px,4vw,28px);color:var(--ink)}
@@ -70,7 +69,7 @@ footer a{color:var(--ink)}
   <div class="top"><div class="lang" id="lang" role="group" aria-label="Lingua / Language"></div></div>
 
   <header>
-    <img class="mark" src="gm-icon-512.png" width="160" height="160" alt="">
+    <img class="mark" src="gm-photo.jpg" width="220" height="220" alt="Gabri e Maya">
     <h1>G<span class="amp">&amp;</span>M Games</h1>
     <p class="tagline" data-i="tagline"></p>
     <p class="intro" data-i="intro"></p>
