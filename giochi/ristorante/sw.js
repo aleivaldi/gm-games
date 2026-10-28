@@ -1,4 +1,4 @@
-const CACHE = 'chef-a-casa-mvsnyc97';
+const CACHE = 'chef-a-casa-mvsox6fl';
 const FILES = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
