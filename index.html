@@ -47,6 +47,10 @@ h1 .amp{color:var(--coral)}
 .thumb.runway{background:radial-gradient(circle at 50% 60%,#FFFFFF 0 22%,#B388FF 70%)}
 .thumb.resto{background:radial-gradient(circle at 50% 60%,#F6EBD0 0 22%,#1F4D3A 72%)}
 .thumb.volley{background:radial-gradient(circle at 50% 60%,#FFF1E6 0 22%,#E8722A 72%)}
+.thumb.kpop{background:radial-gradient(circle at 50% 60%,#2C2339 0 22%,#15111C 72%)}
+.thumb.pozzo{background:radial-gradient(circle at 50% 60%,#ECD9AE 0 22%,#3A2D24 72%)}
+.thumb.filo{background:radial-gradient(circle at 50% 60%,#F8F3E7 0 22%,#123B39 72%)}
+.thumb.mobili{background:radial-gradient(circle at 50% 60%,#FFD45C 0 22%,#2F5BD3 72%)}
 .thumb .big{font-family:var(--emoji);font-size:clamp(80px,12vw,120px);line-height:1}
 .thumb .orbit{position:absolute;font-family:var(--emoji);font-size:44px}
 .game-body{padding:18px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
@@ -138,6 +142,66 @@ footer a{color:var(--ink)}
         <span class="play" data-i="play"></span>
       </div>
     </a>
+    <a class="game" href="giochi/quiz-kpop/">
+      <div class="thumb kpop" aria-hidden="true">
+        <span class="big">🎤</span>
+        <span class="orbit" style="left:10%;top:14%">⭐</span>
+        <span class="orbit" style="right:10%;top:12%">🗡️</span>
+        <span class="orbit" style="left:14%;bottom:10%">🎶</span>
+        <span class="orbit" style="right:12%;bottom:12%">✨</span>
+      </div>
+      <div class="game-body">
+        <h2 data-i="kpopName"></h2>
+        <p data-i="kpopDesc"></p>
+        <div class="tags"><span data-i="tagItOnly"></span><span data-i="tagAge7"></span></div>
+        <span class="play" data-i="play"></span>
+      </div>
+    </a>
+    <a class="game" href="giochi/pozzo-di-parole/">
+      <div class="thumb pozzo" aria-hidden="true">
+        <span class="big">🔠</span>
+        <span class="orbit" style="left:10%;top:14%">📜</span>
+        <span class="orbit" style="right:10%;top:12%">✒️</span>
+        <span class="orbit" style="left:14%;bottom:10%">🏆</span>
+        <span class="orbit" style="right:12%;bottom:12%">⏬</span>
+      </div>
+      <div class="game-body">
+        <h2 data-i="pozzoName"></h2>
+        <p data-i="pozzoDesc"></p>
+        <div class="tags"><span data-i="tagItOnly"></span><span data-i="tagAge10"></span></div>
+        <span class="play" data-i="play"></span>
+      </div>
+    </a>
+    <a class="game" href="giochi/filo-di-parole/">
+      <div class="thumb filo" aria-hidden="true">
+        <span class="big">🧵</span>
+        <span class="orbit" style="left:10%;top:14%">🔤</span>
+        <span class="orbit" style="right:10%;top:12%">⭐</span>
+        <span class="orbit" style="left:14%;bottom:10%">🐾</span>
+        <span class="orbit" style="right:12%;bottom:12%">🍝</span>
+      </div>
+      <div class="game-body">
+        <h2 data-i="filoName"></h2>
+        <p data-i="filoDesc"></p>
+        <div class="tags"><span data-i="tagItOnly"></span><span data-i="tagAge8"></span></div>
+        <span class="play" data-i="play"></span>
+      </div>
+    </a>
+    <a class="game" href="giochi/parole-mobili/">
+      <div class="thumb mobili" aria-hidden="true">
+        <span class="big">🔀</span>
+        <span class="orbit" style="left:10%;top:14%">🧩</span>
+        <span class="orbit" style="right:10%;top:12%">🔗</span>
+        <span class="orbit" style="left:14%;bottom:10%">💡</span>
+        <span class="orbit" style="right:12%;bottom:12%">⭐</span>
+      </div>
+      <div class="game-body">
+        <h2 data-i="mobiliName"></h2>
+        <p data-i="mobiliDesc"></p>
+        <div class="tags"><span data-i="tagItOnly"></span><span data-i="tagAge10"></span></div>
+        <span class="play" data-i="play"></span>
+      </div>
+    </a>
     <div class="soon"><div><span class="emo">🎁</span><span data-i="soon"></span></div></div>
   </main>
 
@@ -162,6 +226,7 @@ footer a{color:var(--ink)}
   const LANGS = ['it', 'en', 'fr', 'de', 'es'];
   const STR = {
     it: {
+      kpopName: 'Quiz KPop Demon Hunters', kpopDesc: 'Quiz, vero o falso, parole mescolate e photocard sul film delle Huntr/x. Quiz dei fan, non ufficiale.', pozzoName: 'Pozzo di Parole', pozzoDesc: 'Scambia le lettere nel pozzo e componi parole sempre più lunghe prima che finisca il sacchetto.', filoName: 'Filo di Parole', filoDesc: 'Unisci le lettere col dito, trova le parole del tema e raggiungi l\'obiettivo del livello.', mobiliName: 'Parole Mobili', mobiliDesc: 'Togli, aggiungi e sposta le lettere: parola dopo parola arriva alla soluzione dell\'indovinello.', tagItOnly: 'Solo in italiano', tagAge7: 'Dai 7 anni',
       volleyName: 'Volley Club', volleyDesc: 'Allena la tua squadra di pallavolo, schiera la formazione e vinci il campionato.', tagLangs2: '2 lingue', tagAge10: 'Dai 10 anni',
       restoName: 'Ristorante 5 Stelle', restoDesc: 'Gestisci un ristorante elegante, assumi lo staff e scopri il critico in incognito.', tagAge8: 'Dagli 8 anni',
       tagline: 'I giochi di Gabri e Maya',
@@ -175,6 +240,7 @@ footer a{color:var(--ink)}
       privacy: 'Privacy e cookie',
     },
     en: {
+      kpopName: 'Quiz KPop Demon Hunters', kpopDesc: 'Quizzes, true or false, word scrambles and a photocard about the Huntr/x film. Unofficial fan quiz, in Italian.', pozzoName: 'Pozzo di Parole', pozzoDesc: 'Swap the letters in the well and build longer and longer words before the bag runs out. In Italian.', filoName: 'Filo di Parole', filoDesc: 'Trace letters with your finger, find the theme words and reach the level goal. In Italian.', mobiliName: 'Parole Mobili', mobiliDesc: 'Remove, add and move letters: word by word, reach the answer to the riddle. In Italian.', tagItOnly: 'Italian only', tagAge7: 'Ages 7+',
       volleyName: 'Volley Club', volleyDesc: 'Coach your volleyball team, pick the line-up and win the league.', tagLangs2: '2 languages', tagAge10: 'Ages 10+',
       restoName: '5-Star Restaurant', restoDesc: 'Run an elegant restaurant, hire your staff and unmask the secret food critic.', tagAge8: 'Ages 8+',
       tagline: 'Games by Gabri and Maya',
@@ -188,6 +254,7 @@ footer a{color:var(--ink)}
       privacy: 'Privacy and cookies',
     },
     fr: {
+      kpopName: 'Quiz KPop Demon Hunters', kpopDesc: 'Quiz, vrai ou faux, mots mélangés et photocard sur le film des Huntr/x. Quiz de fans non officiel, en italien.', pozzoName: 'Pozzo di Parole', pozzoDesc: 'Échange les lettres du puits et forme des mots de plus en plus longs avant la fin du sac. En italien.', filoName: 'Filo di Parole', filoDesc: 'Relie les lettres du doigt, trouve les mots du thème et atteins l\'objectif du niveau. En italien.', mobiliName: 'Parole Mobili', mobiliDesc: 'Retire, ajoute et déplace les lettres : mot après mot, trouve la réponse à la devinette. En italien.', tagItOnly: 'En italien', tagAge7: 'Dès 7 ans',
       volleyName: 'Volley Club', volleyDesc: 'Entraîne ton équipe de volley, choisis la composition et gagne le championnat.', tagLangs2: '2 langues', tagAge10: 'Dès 10 ans',
       restoName: 'Restaurant 5 étoiles', restoDesc: 'Dirige un restaurant chic, embauche ton équipe et démasque le critique incognito.', tagAge8: 'Dès 8 ans',
       tagline: 'Les jeux de Gabri et Maya',
@@ -201,6 +268,7 @@ footer a{color:var(--ink)}
       privacy: 'Confidentialité et cookies',
     },
     de: {
+      kpopName: 'Quiz KPop Demon Hunters', kpopDesc: 'Quiz, Wahr oder falsch, Buchstabensalat und Fotokarte zum Huntr/x-Film. Inoffizielles Fan-Quiz, auf Italienisch.', pozzoName: 'Pozzo di Parole', pozzoDesc: 'Tausche die Buchstaben im Brunnen und bilde immer längere Wörter, bevor der Beutel leer ist. Auf Italienisch.', filoName: 'Filo di Parole', filoDesc: 'Verbinde Buchstaben mit dem Finger, finde die Themenwörter und erreiche das Levelziel. Auf Italienisch.', mobiliName: 'Parole Mobili', mobiliDesc: 'Buchstaben wegnehmen, hinzufügen, verschieben: Wort für Wort zur Lösung des Rätsels. Auf Italienisch.', tagItOnly: 'Nur Italienisch', tagAge7: 'Ab 7 Jahren',
       volleyName: 'Volley Club', volleyDesc: 'Trainiere dein Volleyballteam, stelle die Aufstellung auf und gewinne die Liga.', tagLangs2: '2 Sprachen', tagAge10: 'Ab 10 Jahren',
       restoName: '5-Sterne-Restaurant', restoDesc: 'Führe ein elegantes Restaurant, stelle Personal ein und entlarve den geheimen Restaurantkritiker.', tagAge8: 'Ab 8 Jahren',
       tagline: 'Die Spiele von Gabri und Maya',
@@ -214,6 +282,7 @@ footer a{color:var(--ink)}
       privacy: 'Datenschutz und Cookies',
     },
     es: {
+      kpopName: 'Quiz KPop Demon Hunters', kpopDesc: 'Preguntas, verdadero o falso, palabras revueltas y photocard sobre la película de las Huntr/x. Quiz de fans no oficial, en italiano.', pozzoName: 'Pozzo di Parole', pozzoDesc: 'Cambia las letras del pozo y forma palabras cada vez más largas antes de que se acabe la bolsa. En italiano.', filoName: 'Filo di Parole', filoDesc: 'Une las letras con el dedo, encuentra las palabras del tema y alcanza el objetivo del nivel. En italiano.', mobiliName: 'Parole Mobili', mobiliDesc: 'Quita, añade y mueve letras: palabra a palabra, llega a la respuesta de la adivinanza. En italiano.', tagItOnly: 'Solo en italiano', tagAge7: 'Desde 7 años',
       volleyName: 'Volley Club', volleyDesc: 'Entrena a tu equipo de voleibol, elige la alineación y gana la liga.', tagLangs2: '2 idiomas', tagAge10: 'Desde 10 años',
       restoName: 'Restaurante 5 estrellas', restoDesc: 'Dirige un restaurante elegante, contrata a tu equipo y descubre al crítico de incógnito.', tagAge8: 'Desde 8 años',
       tagline: 'Los juegos de Gabri y Maya',
